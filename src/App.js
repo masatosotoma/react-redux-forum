@@ -14,6 +14,16 @@ function App() {
           <input type="text" placeholder="Name"></input>
           <input type="text" placeholder="Post Contents"></input>
           <button>Post</button>
+          <hr />
+        </div>
+        <div className="displayPosts">
+          {postList.map((post) => (
+            <div key={post.id} className="post">
+              <h1>{post.name}</h1>
+              <h1 className="postContent">{post.content}</h1>
+              <button>Delete post</button>
+            </div>
+          ))}
         </div>
       </div>
     </div>
