@@ -1,9 +1,27 @@
 import "./App.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addPost } from "./features/Posts";
+import { useState } from "react";
 
 function App() {
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
+
   const postList = useSelector((state) => state.posts.value);
   console.log(postList);
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(
+      addPost({
+        id: postList.length,
+        name: name,
+        content: content,
+      })
+    );
+  };
+
   return (
     <div className="App">
       <div>
@@ -11,8 +29,16 @@ function App() {
       </div>
       <div>
         <div className="addPost">
-          <input type="text" placeholder="Name"></input>
-          <input type="text" placeholder="Post Contents"></input>
+          <input
+            type="text"
+            placeholder="Name"
+            onChange={(e) => setName(e.target.value)}
+          ></input>
+          <input
+            type="text"
+            placeholder="Post Contents"
+            onChange={(e) => setContent(e.target.value)}
+          ></input>
           <button>Post</button>
           <hr />
         </div>
