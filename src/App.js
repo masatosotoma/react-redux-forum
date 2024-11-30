@@ -20,6 +20,9 @@ function App() {
         content: content,
       })
     );
+
+    setName("");
+    setContent("");
   };
 
   return (
@@ -39,7 +42,7 @@ function App() {
             placeholder="Post Contents"
             onChange={(e) => setContent(e.target.value)}
           ></input>
-          <button>Post</button>
+          <button onClick={() => handleClick()}>Post</button>
           <hr />
         </div>
         <div className="displayPosts">
