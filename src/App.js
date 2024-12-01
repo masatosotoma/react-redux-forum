@@ -1,6 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { addPost } from "./features/Posts";
+import { addPost, deletePost } from "./features/Posts";
 import { useState } from "react";
 
 function App() {
@@ -52,7 +52,9 @@ function App() {
             <div key={post.id} className="post">
               <h1>{post.name}</h1>
               <h1 className="postContent">{post.content}</h1>
-              <button>Delete post</button>
+              <button onClick={() => dispatch(deletePost({ id: post.id }))}>
+                Delete post
+              </button>
             </div>
           ))}
         </div>
