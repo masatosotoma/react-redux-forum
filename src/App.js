@@ -36,11 +36,13 @@ function App() {
             type="text"
             placeholder="Name"
             onChange={(e) => setName(e.target.value)}
+            value={name}
           ></input>
           <input
             type="text"
             placeholder="Post Contents"
             onChange={(e) => setContent(e.target.value)}
+            value={content}
           ></input>
           <button onClick={() => handleClick()}>Post</button>
           <hr />
